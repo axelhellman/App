@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
 
   mainPageLogo:{
-    //flex:1,
+    flex:1,
     backgroundColor:'yellow',
   },
 
@@ -166,10 +166,6 @@ const styles = StyleSheet.create({
     //flex:1,
     backgroundColor: 'black',
   },
-
-    picture: {
-    //flex: 1,
-  }
 });
 
 module.exports = MainPage;
