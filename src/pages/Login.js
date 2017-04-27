@@ -33,7 +33,7 @@ export default class Login extends Component {
   _handlePressLogin() {
     console.log('Pressed!');
     this.props.navigator.replace({
-      id: 'MainPage',
+      id: 'Tabs',
        });
   }
   _handlePressCancel() {

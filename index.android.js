@@ -20,7 +20,7 @@ var {
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var Login = require('./src/pages/Login');
 var MainPage = require('./src/pages/MainPage');
-
+var Tabs = require('./src/pages/Tabs');
 
 class App extends Component {
   render() {
@@ -56,9 +56,9 @@ class App extends Component {
             navigator={navigator} />
       );
     }
-    if (routeId === 'PersonPage') {
+    if (routeId === 'Tabs') {
       return (
-        <PersonPage
+        <Tabs
           navigator={navigator} />
       );
     }

@@ -41,7 +41,7 @@ constructor () {
   }
 
   spin2 () {
-    this.spinValue2.setValue(10) //Här ändras värdet på hur snabbt kugghjulet ska snurra
+    this.spinValue2.setValue(0) //Här ändras värdet på hur snabbt kugghjulet ska snurra
     Animated.timing(
       this.spinValue2,
       {
@@ -129,46 +129,46 @@ constructor () {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
   },
 
   content: {
-    flex:7,
+    //flex:7,
     marginBottom: 0,
   },
 
   mainPageLogo:{
-    flex:1,
+    //flex:1,
     backgroundColor:'yellow',
   },
 
   mainPageContent:{
-    flex:3,
+    //flex:3,
     backgroundColor: 'black',
     flexDirection: 'row',
   },
 
   solarCell:{
-    flex:1,
+    //flex:1,
     backgroundColor:'white',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   consumption:{
-    flex:1,
+    //flex:1,
     backgroundColor:'white',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   navbarContainer:{
-    flex:1,
+    //flex:1,
     backgroundColor: 'black',
   },
 
     picture: {
-    flex: 1,
+    //flex: 1,
   }
 });
 
