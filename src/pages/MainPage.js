@@ -149,14 +149,14 @@ const styles = StyleSheet.create({
   },
 
   solarCell:{
-    //flex:1,
+    flex:1,
     backgroundColor:'white',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   consumption:{
-    //flex:1,
+    flex:1,
     backgroundColor:'white',
     justifyContent: 'center',
     alignItems: 'center'
