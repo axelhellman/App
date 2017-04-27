@@ -17,7 +17,7 @@ var {
 } = ReactNative;
 
 
-
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 var Login = require('./src/pages/Login');
 var MainPage = require('./src/pages/MainPage');
 

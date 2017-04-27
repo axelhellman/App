@@ -1,34 +1,35 @@
 import React,{Component} from 'react'
 var ReactNative = require('react-native');
 var {
-/* View,
-  Text,
-  StyleSheet,
-  AppRegistry,
-  Animated,
-  Image*/
   AppRegistry,
   StyleSheet,
   Text,
   View,
   Animated,
   Image,
-  Easing
+  Easing,
+  TouchableOpacity,
+  ScrollView,
 } = ReactNative;
 
-const timing = 4000
+import ScrollableTabView, {ScrollableTabBar, DefaultTabBar} from 'react-native-scrollable-tab-view';
+
+const timing = 10000;
+
 
 class MainPage extends Component {
 
 constructor () {
     super()
-    this.spinValue = new Animated.Value(0)
+    this.spinValue = new Animated.Value(0);
+    this.spinValue2 = new Animated.Value(0);
   }
   componentDidMount () {
-    this.spin()
+    this.spin();
+    this.spin2();
   }
   spin () {
-    this.spinValue.setValue(0)
+    this.spinValue.setValue(0) //Här ändras värdet på hur snabbt solen ska snurra
     Animated.timing(
       this.spinValue,
       {
@@ -38,8 +39,22 @@ constructor () {
       }
     ).start(() => this.spin())
   }
-  render () {
-    /* This also works, to show functions instead of strings */
+
+  spin2 () {
+    this.spinValue2.setValue(10) //Här ändras värdet på hur snabbt kugghjulet ska snurra
+    Animated.timing(
+      this.spinValue2,
+      {
+        toValue: 1,
+        duration: timing,
+        easing: Easing.linear
+
+      }
+    ).start(() => this.spin2())
+  }
+
+  render() {
+     /* This also works, to show functions instead of strings */
     // const getStartValue = () => '0deg'
     // const getEndValue = () => '360deg'
     // const spin = this.spinValue.interpolate({
@@ -50,45 +65,63 @@ constructor () {
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg']
     })
+
+     const spin2 = this.spinValue2.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg']
+    })
+
     return (
-      <View style={styles.container}>
-        <Animated.Image
-          style={{ width: 227, height: 200, transform: [{rotate: spin}] }}
-          source={{uri: 'https://cdn.pixabay.com/photo/2014/04/02/10/25/sun-303773_1280.png'}}/>
+       /*  <ScrollableTabView
+      renderTabBar={() => <DefaultTabBar />}
+      ref={(tabView) => { this.tabView = tabView;}}>
+      <View tabLabel='Tab #1'> 
+      <View style={styles.mainPageLogo}><Text>asd oasdkljg klaskln öjasjnl jöasfnjk mjmm m</Text>
+       <View style={styles.consumption}>
+                <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
+          source={require('./kugg.png')}/>
+              </View>
+                <View style={styles.solarCell}>
+                <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
+          source={require('./sun2.png')}/>
+              </View>
+              </View>
+      
+
       </View>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
-
-
-  /*render() {
-    return (
+      <Text tabLabel='Tab #2'>favorite</Text>
+      <Text tabLabel='Tab #3'>project</Text>
+      <TouchableOpacity tabLabel='Back' onPress={() => this.tabView.goToPage(0)}>
+        <Text>Lets go back!</Text>
+      </TouchableOpacity>
+    </ScrollableTabView> */
 
       <View style={styles.container}>
         <View style={styles.content}>
             <View style={styles.mainPageLogo}>
+
             </View>
             <View style={styles.mainPageContent}>
+              
               <View style={styles.solarCell}>
-              </View>
-              <View style={styles.consumption}>
+                <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
+          source={require('./sun2.png')}/>
               </View>
 
+              <View style={styles.consumption}>
+                <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
+          source={require('./kugg.png')}/>
+              </View>
 
 
             </View>
         </View>
 
-        <View style={styles.navbarContainer}>
-        </View>
+      
       </View>
     );
   }
@@ -98,31 +131,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   content: {
     flex:7,
     marginBottom: 0,
   },
+
   mainPageLogo:{
     flex:1,
     backgroundColor:'yellow',
   },
+
   mainPageContent:{
     flex:3,
     backgroundColor: 'black',
     flexDirection: 'row',
   },
+
   solarCell:{
     flex:1,
-    backgroundColor:'pink',
+    backgroundColor:'white',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
+
   consumption:{
     flex:1,
     backgroundColor:'white',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
+
   navbarContainer:{
     flex:1,
     backgroundColor: 'black',
+  },
+
+    picture: {
+    flex: 1,
   }
-});*/
+});
 
 module.exports = MainPage;

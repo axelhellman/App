@@ -20,7 +20,8 @@ import {
   ScrollView,
   Image,
   AppRegistry,
-  Dimensions
+  Dimensions,
+  Easing
 } from 'react-native';
  
 
@@ -31,7 +32,7 @@ export default class Login extends Component {
   }
   _handlePressLogin() {
     console.log('Pressed!');
-    this.props.navigator.push({
+    this.props.navigator.replace({
       id: 'MainPage',
        });
   }
@@ -43,18 +44,18 @@ export default class Login extends Component {
   }
 
   render() {
+    let pic = {
+      uri: 'http://watt-s.com/wp-content/themes/watt-s/assets/img/watts_logo.png'
+    };
     return (
-  
-        <ScrollView style={styles.scroll}>  
-  
-      <Container>
-       <Button 
-        label="Forgot Login/Pass"
-        styles={{button: styles.alignRight, label: styles.label}} 
-        onPress={() => this._handlePressCancel()} />
-       </Container>
-       <Container>
-    <Label text="Username or Email" />
+
+        <View style={styles.main}>  
+        <View style={{alignItems: 'center'}}>
+      <Image source={pic} style={{width: 200, height: 110}}/>
+      </View>
+
+         <Container>
+       <Label text="Username or Email" />
     <TextInput
         style={styles.textInput}/>
         </Container>
@@ -65,6 +66,13 @@ export default class Login extends Component {
         style={styles.textInput}/>
         </Container>
 
+    <Container>
+       <Button 
+        label="Forgot Login/Pass"
+        styles={{button: styles.alignRight, label: styles.label}} 
+        onPress={() => this._handlePressCancel()} />
+       </Container>
+       
 
 <View style={styles.footer}>
     <Container>
@@ -73,19 +81,12 @@ export default class Login extends Component {
             styles={{button: styles.primaryButton, label: styles.buttonWhiteText}} 
           onPress={() => this._handlePressLogin()} />
     </Container>
-    <Container>
-        
-
-        <Button 
-            label="CANCEL"
-            styles={{label: styles.buttonBlackText}} 
-          onPress={() => this._handlePressCancel()} />
-    </Container>
+    
 </View>
       
 
 
-        </ScrollView>
+        </View>
       
     );
   }
@@ -100,6 +101,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'seashell',
     padding: 30,
     flexDirection: 'column'
+    //flex: 1;
+},
+  /*watts_logo:{
+ flex:1,
+    backgroundColor:'yellow',
+  },*/
+main: {
+  backgroundColor: 'seashell',
+  padding: 50,
 },
 
 label: {
@@ -107,16 +117,18 @@ label: {
     fontSize: 20
 },
 alignRight: {
-    alignSelf: 'flex-end'
-},
+   alignSelf: 'flex-end'
+}, 
+
 textInput: {
     height: 80,
     fontSize: 30,
-    backgroundColor: 'whitesmoke'
+    backgroundColor: 'white'
 },
+
 buttonWhiteText: {
     fontSize: 20,
-    color: 'whitesmoke',
+    color: 'white',
 },
 buttonBlackText: {
     fontSize: 20,
@@ -126,30 +138,10 @@ primaryButton: {
     backgroundColor: '#34A853'
 },
 footer: {
-   marginTop: 100
+   marginTop: 30
 }
 
 });
 
-/*
-   <Container>
-      <Button 
-        label="Forgot Login/Pass"
-        styles={{button: styles.alignRight, label: styles.label}} 
-        onPress={this.press.bind(this)} />
-    </Container>
-
-<Container>
-    <Label text="Username or Email" />
-    <TextInput
-        style={styles.textInput}/>
-</Container>
-<Container>
-    <Label text="Password" />
-    <TextInput
-        secureTextEntry={true}
-        style={styles.textInput}/>
-</Container>
-*/
 
 module.exports = Login;
