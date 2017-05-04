@@ -1,36 +1,61 @@
-import React,{Component} from 'react'
-var ReactNative = require('react-native');
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-  Image,
-  Easing,
-  TouchableOpacity,
-  ScrollView,
-} = ReactNative;
+import React, { Component } from 'react';
+import { AppRegistry, Text, View,StyleSheet } from 'react-native';
+import { TabViewAnimated, TabBar } from 'react-native-tab-view';
+import MainPage from './MainPage';
 
-import ScrollableTabView, {ScrollableTabBar, DefaultTabBar} from 'react-native-scrollable-tab-view';
-var MainPage = require('./MainPage')
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
-class Tabs extends Component {
-   render(){
-    return(
-        <ScrollableTabView
-      renderTabBar={() => <DefaultTabBar />}
-      ref={(tabView) => { this.tabView = tabView;}}>
-      <View tabLabel='SolEL'><MainPage /></View>
-      <Text tabLabel='Tab #2'>favorite</Text>
-      <Text tabLabel='Tab #3'>project</Text>
-      <TouchableOpacity tabLabel='Back' onPress={() => this.tabView.goToPage(0)}>
-        <Text>Lets go back!</Text>
-      </TouchableOpacity>
-    </ScrollableTabView> 
-      );
-   }
+export default class Tabs extends Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: '1', title: 'First' },
+      { key: '2', title: 'Second' },
+      { key: '3', title: 'Main'}
+    ],
+  };
+
+  _handleChangeTab = (index) => {
+    this.setState({ index });
+  };
+
+  _renderHeader = (props) => {
+    return <TabBar {...props} />;
+  };
+
+  _renderScene = ({ route }) => {
+    switch (route.key) {
+    case '1':
+      return <View style={[ styles.page, { backgroundColor: '#ff4081' } ]} />;
+    case '2':
+      return <View style={[ styles.page, { backgroundColor: '#673ab7' } ]} />;
+    case '3':
+      return <MainPage/>
+      break;
+    default:
+      return null;
+    }
+  };
+
+  render() {
+    return (
+      <TabViewAnimated
+        style={styles.container}
+        navigationState={this.state}
+        renderScene={this._renderScene}
+        renderHeader={this._renderHeader}
+        onRequestChangeTab={this._handleChangeTab}/>
+    );
   }
-
+}
 
   module.exports = Tabs;

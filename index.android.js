@@ -17,7 +17,7 @@ var {
 } = ReactNative;
 
 
-var ScrollableTabView = require('react-native-scrollable-tab-view');
+//var ScrollableTabView = require('react-native-scrollable-tab-view');
 var Login = require('./src/pages/Login');
 var MainPage = require('./src/pages/MainPage');
 var Tabs = require('./src/pages/Tabs');
@@ -38,14 +38,8 @@ class App extends Component {
   }
   renderScene(route, navigator) {
     var routeId = route.id;
-    if (routeId === 'MainPage') {
-      return (
-        <MainPage
-          navigator={navigator} />
-      );
-    }
     if (routeId === 'Login') {
-      return ( 
+      return (
         <Login
           navigator={navigator} />
       );
@@ -53,10 +47,10 @@ class App extends Component {
     if (routeId === 'MainPage') {
       return (
         <MainPage
-            navigator={navigator} />
+          navigator={navigator} />
       );
     }
-    if (routeId === 'Tabs') {
+   if (routeId === 'Tabs') {
       return (
         <Tabs
           navigator={navigator} />

@@ -38,7 +38,7 @@ export default class Login extends Component {
   }
   _handlePressCancel() {
     console.log('Pressed!');
-    this.props.navigator.push({
+    this.props.navigator.replace({
       id: 'Login',
        });
   }

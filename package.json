@@ -11,6 +11,7 @@
     "react-native": "0.43.3",
     "react-native-scrollable-tab-view": "^0.6.5",
     "react-native-simple-router": "^0.12.0",
+    "react-native-tab-view": "0.0.62",
     "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
