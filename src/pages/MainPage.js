@@ -71,54 +71,40 @@ constructor () {
       outputRange: ['0deg', '360deg']
     })
 
+let pic = {
+      uri: 'http://watt-s.com/wp-content/themes/watt-s/assets/img/watts_logo.png'
+    };
+
     return (
-       /*  <ScrollableTabView
-      renderTabBar={() => <DefaultTabBar />}
-      ref={(tabView) => { this.tabView = tabView;}}>
-      <View tabLabel='Tab #1'> 
-      <View style={styles.mainPageLogo}><Text>asd oasdkljg klaskln öjasjnl jöasfnjk mjmm m</Text>
-       <View style={styles.consumption}>
-                <Animated.Image
-          style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
-          source={require('./kugg.png')}/>
-              </View>
-                <View style={styles.solarCell}>
-                <Animated.Image
-          style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
-          source={require('./sun2.png')}/>
-              </View>
-              </View>
-      
-
-      </View>
-      <Text tabLabel='Tab #2'>favorite</Text>
-      <Text tabLabel='Tab #3'>project</Text>
-      <TouchableOpacity tabLabel='Back' onPress={() => this.tabView.goToPage(0)}>
-        <Text>Lets go back!</Text>
-      </TouchableOpacity>
-    </ScrollableTabView> */
-
       <View style={styles.container}>
         <View style={styles.content}>
             <View style={styles.mainPageLogo}>
+            <Image source={pic} style = {{flex: 1}}></Image>
+            </View>
+            <View style={styles.graph}>
 
             </View>
-            <View style={styles.mainPageContent}>
-              
-              <View style={styles.solarCell}>
-                <Animated.Image
-          style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
-          source={require('./sun2.png')}/>
+
+              <View style={styles.usage}>
+                 
+                 <View style={styles.solarspin}>
+                   <Animated.Image
+                    style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
+                    source={require('./sun2.png')}/>  
+                  </View>
+
+                  <View style={styles.consumptionspin}>
+                    <Animated.Image
+                    style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
+                    source={require('./kugg.png')}/>
+                  </View>
+
               </View>
 
-              <View style={styles.consumption}>
-                <Animated.Image
-          style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
-          source={require('./kugg.png')}/>
+              <View style={styles.footer}>
+        
               </View>
 
-
-            </View>
         </View>
 
       
@@ -129,43 +115,59 @@ constructor () {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
+    flex: 1,
   },
 
   content: {
-    //flex:7,
+    flex:7,
     marginBottom: 0,
   },
 
   mainPageLogo:{
-    flex:1,
+    flex:2,
     backgroundColor:'yellow',
   },
 
-  mainPageContent:{
-    //flex:3,
-    backgroundColor: 'black',
-    flexDirection: 'row',
+  graph:{
+    flex:3,
+    backgroundColor: 'black'
   },
 
-  solarCell:{
-    flex:1,
+  usage:{
+    flex:3,
     backgroundColor:'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+
+  solarspin:{
+    flex: 1,
+    alignItems: 'center',
+    paddingLeft: 50
+  },
+
+  consumptionspin:{
+    flex: 1,
+    alignItems: 'center',
+    paddingRight: 50
+  },
+
+  footer:{
+    flex:1,
+    backgroundColor:'cyan',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
-  consumption:{
-    flex:1,
-    backgroundColor:'white',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  navbarContainer:{
-    //flex:1,
-    backgroundColor: 'black',
-  },
 });
 
 module.exports = MainPage;
+
+  /*     <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
+          source={require('./sun2.png')}/> 
+
+      <Animated.Image
+          style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
+          source={require('./kugg.png')}/> */

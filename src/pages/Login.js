@@ -55,12 +55,12 @@ export default class Login extends Component {
       </View>
 
          <Container>
-       <Label text="Username or Email" />
+       <Label text="Email" />
     <TextInput
         style={styles.textInput}/>
         </Container>
         <Container>
-        <Label text="Password" />
+        <Label text="Lösenord" />
         <TextInput
         secureTextEntry={true}
         style={styles.textInput}/>
@@ -68,7 +68,7 @@ export default class Login extends Component {
 
     <Container>
        <Button 
-        label="Forgot Login/Pass"
+        label="Glömt Lösenord"
         styles={{button: styles.alignRight, label: styles.label}} 
         onPress={() => this._handlePressCancel()} />
        </Container>
@@ -77,7 +77,7 @@ export default class Login extends Component {
 <View style={styles.footer}>
     <Container>
         <Button 
-            label="Sign In"
+            label="Logga in"
             styles={{button: styles.primaryButton, label: styles.buttonWhiteText}} 
           onPress={() => this._handlePressLogin()} />
     </Container>

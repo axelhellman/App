@@ -18,9 +18,9 @@ export default class Tabs extends Component {
   state = {
     index: 0,
     routes: [
-      { key: '1', title: 'First' },
+      { key: '1', title: 'Main' },
       { key: '2', title: 'Second' },
-      { key: '3', title: 'Main'}
+      { key: '3', title: 'First'}
     ],
   };
 
@@ -35,11 +35,11 @@ export default class Tabs extends Component {
   _renderScene = ({ route }) => {
     switch (route.key) {
     case '1':
-      return <View style={[ styles.page, { backgroundColor: '#ff4081' } ]} />;
+      return <MainPage/>
     case '2':
       return <View style={[ styles.page, { backgroundColor: '#673ab7' } ]} />;
     case '3':
-      return <MainPage/>
+      return <View style={[ styles.page, { backgroundColor: '#ff4081' } ]} />;
       break;
     default:
       return null;
@@ -47,6 +47,9 @@ export default class Tabs extends Component {
   };
 
   render() {
+    let pic = {
+      uri: 'http://watt-s.com/wp-content/themes/watt-s/assets/img/watts_logo.png'
+    };
     return (
       <TabViewAnimated
         style={styles.container}
