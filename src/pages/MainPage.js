@@ -10,6 +10,7 @@ var {
   Easing,
   TouchableOpacity,
   ScrollView,
+  TextInput,
 } = ReactNative;
 
 import ScrollableTabView, {ScrollableTabBar, DefaultTabBar} from 'react-native-scrollable-tab-view';
@@ -23,11 +24,23 @@ constructor () {
     super()
     this.spinValue = new Animated.Value(0);
     this.spinValue2 = new Animated.Value(0);
+    this.state = {showText: true};
+
+    this.state        = { name: '' } ;
+    this.handleChange = this.handleChange.bind(this);
   }
+  
+   handleChange(event) {
+    this.setState({ name: event.currentTarget.value });
+  }
+  
+
   componentDidMount () {
     this.spin();
     this.spin2();
   }
+
+  
   spin () {
     this.spinValue.setValue(0) //Här ändras värdet på hur snabbt solen ska snurra
     Animated.timing(
@@ -51,7 +64,10 @@ constructor () {
 
       }
     ).start(() => this.spin2())
+
+    
   }
+
 
   render() {
      /* This also works, to show functions instead of strings */
@@ -91,12 +107,24 @@ let pic = {
                    <Animated.Image
                     style={{ width: 70, height: 70, transform: [{rotate: spin}] }}
                     source={require('./sun2.png')}/>  
-                  </View>
+                    
+                    <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+                     70W
+                    </Text>
+                    
+                    </View>
+
+
 
                   <View style={styles.consumptionspin}>
                     <Animated.Image
                     style={{ width: 70, height: 70, transform: [{rotate: spin2}] }}
                     source={require('./kugg.png')}/>
+
+                    <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+                     70W
+                    </Text>
+                    
                   </View>
 
               </View>
