@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View,StyleSheet } from 'react-native';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import MainPage from './MainPage';
+import Överblick from './Second';
+import Detalj from './Detalj';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -19,8 +22,8 @@ export default class Tabs extends Component {
     index: 0,
     routes: [
       { key: '1', title: 'Main' },
-      { key: '2', title: 'Second' },
-      { key: '3', title: 'First'}
+      { key: '2', title: 'Överblick' },
+      { key: '3', title: 'Detaljvy'}
     ],
   };
 
@@ -37,9 +40,9 @@ export default class Tabs extends Component {
     case '1':
       return <MainPage/>
     case '2':
-      return <View style={[ styles.page, { backgroundColor: '#673ab7' } ]} />;
+      return <Överblick/>;
     case '3':
-      return <View style={[ styles.page, { backgroundColor: '#ff4081' } ]} />;
+      return <Detalj/>;
       break;
     default:
       return null;

@@ -21,10 +21,16 @@ var {
 var Login = require('./src/pages/Login');
 var MainPage = require('./src/pages/MainPage');
 var Tabs = require('./src/pages/Tabs');
+var ZeroLine = require ('./src/graphs/ZeroLineChartScreen');
+import BarK from './src/graphs/barMainK';
+import BarP from './src/graphs/barMainP';
 
 class App extends Component {
   render() {
     return (
+
+
+
       <Navigator
           initialRoute={{id: 'Login', name: 'Index'}}
           renderScene={this.renderScene.bind(this)}
@@ -33,7 +39,7 @@ class App extends Component {
               return route.sceneConfig;
             }
             return Navigator.SceneConfigs.FloatFromRight;
-          }} />
+          }} /> 
     );
   }
   renderScene(route, navigator) {

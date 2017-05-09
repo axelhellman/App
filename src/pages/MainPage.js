@@ -25,22 +25,16 @@ constructor () {
     this.spinValue = new Animated.Value(0);
     this.spinValue2 = new Animated.Value(0);
     this.state = {showText: true};
-
-    this.state        = { name: '' } ;
-    this.handleChange = this.handleChange.bind(this);
   }
   
-   handleChange(event) {
-    this.setState({ name: event.currentTarget.value });
-  }
-  
+ 
 
   componentDidMount () {
     this.spin();
     this.spin2();
   }
 
-  
+
   spin () {
     this.spinValue.setValue(0) //Här ändras värdet på hur snabbt solen ska snurra
     Animated.timing(
@@ -158,7 +152,7 @@ const styles = StyleSheet.create({
 
   graph:{
     flex:3,
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
 
   usage:{
